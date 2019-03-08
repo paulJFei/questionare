@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/*定义全局的div布局*/
+#global {
+	/*设置宽度，设置百分比可以根据浏览器自适应宽度*/
+	width: 100%;
+	/*设置高度，800px是设置是实体高度，不能自适应的*/
+	height: 800px;
+	/*设置背景颜色，方便区分布局*/
+	background-color: silver;
+}
+/*定义头部布局，前面的div可以不用写，#号前面默认有个id，凡事定义了id的标签，都可以用#号来表示*/
+#heading {
+	width: 100%;
+	height: 100px;
+	background-color: #9ec3e7;
+}
+
+#content_menu {
+	width: 20%;
+	height: 900px;
+	background-color: #bcd7ee;
+	/*定义浮动，不定义的话，界面会乱*/
+	float: left;
+	text-align: center;
+	font-size: 22px;
+	color: #7f7e7f;
+}
+
+}
+#content_hr {
+	width: 100%;
+	height: 1px;
+	background-color: #9ec3e7;
+	border: none;
+}
+
+#content_body {
+	width: 80%;
+	height: 900px;
+	background-color: #ddecf7;
+	float: right;
+}
+
+.add_input {
+	background: #ddecf7;
+	height: 30px;
+	width: 200px;
+	border-radius: 6px;
+	padding-left: 5px;
+	font-size: 18px;
+	line-height: 20px
+}
+}
+</
+style
+>
