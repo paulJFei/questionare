@@ -1,5 +1,5 @@
 package ques.servlet;
-//ÖÓöÎ
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -17,33 +17,33 @@ public class CommomRigest extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String account = request.getParameter("Rname");
 		String psw = request.getParameter("Rpassword");
-		//¼ì²âÊı¾İ
+		//æ£€æµ‹æ•°æ®
 		System.out.printf(account+"\t"+psw);
 			
 		try {	
-			//Á¬½ÓÊı¾İ¿â
+			//è¿æ¥æ•°æ®åº“
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/questionare?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false";
 			Connection con = DriverManager.getConnection(url,"root","root111222");
 			
-			//		¼ì²âÓÃ»§ÃûÊÇ·ñÖØ¸´
+			//		æ£€æµ‹ç”¨æˆ·åæ˜¯å¦é‡å¤
 			String sql="select * from user where account ='"+account+"'";
 			PreparedStatement pre = con.prepareStatement(sql);
 			ResultSet res = pre.executeQuery();
 			System.out.println("get");
 			if(res.next()){
-				System.out.println("ÓÃ»§ÃûÒÑ±»Ê¹ÓÃ");
+				System.out.println("ç”¨æˆ·åå·²è¢«ä½¿ç”¨");
 			}
 			else{
-				//		ÓÃ»§ÃûÎ´±»Ê¹ÓÃ,¿É×¢²á
+				//		ç”¨æˆ·åæœªè¢«ä½¿ç”¨,å¯æ³¨å†Œ
 				String sql1= "insert into user values(?,?)";
 				PreparedStatement pre1 = con.prepareStatement(sql1);		
 				pre1.setString(1, account);
 				pre1.setString(2, psw);
 				pre1.execute();
 				
-				//×¢²áÍê±Ï
-				System.err.println("×¢²áÍê±Ï");
+				//æ³¨å†Œå®Œæ¯•
+				System.err.println("æ³¨å†Œå®Œæ¯•");
 				request.setAttribute("regist", true);
 				PrintWriter write = response.getWriter();
 				write.write("ok");
